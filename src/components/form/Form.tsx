@@ -76,7 +76,7 @@ export const Form: FC<FormProps> = ({
 
         <InputField
           id="highest_energy_use"
-          label="Highest Efficiency Use"
+          label="Highest Energy Use"
           onChange={(evt) =>
             handleChange({ evt, fieldName: 'highest_energy_use' })
           }
