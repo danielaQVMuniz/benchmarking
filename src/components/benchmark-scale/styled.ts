@@ -55,14 +55,16 @@ export const BenchmarkScaleWrapper = styled.div`
 
 export const BenchmarkScaleContainer = styled.div<{
   $midEfficiencyPoint: number
+  $lowEfficiencyPoint: number
 }>(
-  ({ $midEfficiencyPoint }) => `
+  ({ $midEfficiencyPoint, $lowEfficiencyPoint }) => `
   align-items: center;
   background: rgb(0, 166, 82);
   background: linear-gradient(
     90deg,
     rgba(0, 166, 82, 1) 0%,
     rgba(254, 242, 1, 1) ${$midEfficiencyPoint}%,
+    rgba(253, 184, 18, 1) ${$lowEfficiencyPoint}%,
     rgba(237, 28, 36, 1) 100%
   );
   display: flex;

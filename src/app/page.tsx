@@ -38,7 +38,8 @@ export default function Home() {
     if (
       (fieldName === 'current_energy_use_unit' ||
         fieldName === 'current_energy_use_value' ||
-        fieldName === 'mid_efficiency_point') &&
+        fieldName === 'mid_efficiency_point' ||
+        fieldName === 'low_efficiency_point') &&
       parseInt(updatedValue) > values.highest_energy_use
     ) {
       const newValues = {

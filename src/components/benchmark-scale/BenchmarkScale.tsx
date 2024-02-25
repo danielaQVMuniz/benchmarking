@@ -42,6 +42,7 @@ export const BenchmarkScale: FC<BenchmarkScaleProps> = ({
 
         <BenchmarkScaleWrapper>
           <BenchmarkScaleContainer
+            $lowEfficiencyPoint={values.low_efficiency_point}
             $midEfficiencyPoint={values.mid_efficiency_point}
           >
             <BenchmarkArrowDown values={values} />

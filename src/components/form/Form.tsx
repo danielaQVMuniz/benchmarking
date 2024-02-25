@@ -64,7 +64,7 @@ export const Form: FC<FormProps> = ({
 
         <InputField
           id="mid_efficiency_point"
-          label="Mid Efficiency"
+          label="Mid Efficiency Mark (%)"
           max={values.highest_energy_use}
           min={0}
           onChange={(evt) =>
@@ -72,6 +72,18 @@ export const Form: FC<FormProps> = ({
           }
           type="number"
           value={values.mid_efficiency_point}
+        />
+
+        <InputField
+          id="low_efficiency_point"
+          label="Low Efficiency Mark (%)"
+          max={values.highest_energy_use}
+          min={0}
+          onChange={(evt) =>
+            handleChange({ evt, fieldName: 'low_efficiency_point' })
+          }
+          type="number"
+          value={values.low_efficiency_point}
         />
 
         <InputField
