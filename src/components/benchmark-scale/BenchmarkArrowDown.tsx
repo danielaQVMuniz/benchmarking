@@ -7,12 +7,12 @@ import {
   CurrentEnnergyValue,
 } from './styled'
 
-type BenchmarkArrowProps = Pick<BenchmarkScaleProps, 'values'>
+type BenchmarkArrowDownProps = Pick<BenchmarkScaleProps, 'values'>
 
-export const BenchmarkArrow: FC<BenchmarkArrowProps> = ({ values }) => {
+export const BenchmarkArrowDown: FC<BenchmarkArrowDownProps> = ({ values }) => {
   const {
     current_energy_use_value,
-    highest_ennergy_use,
+    highest_energy_use,
     current_energy_use_unit,
     current_energy_use_label,
   } = values
@@ -21,10 +21,10 @@ export const BenchmarkArrow: FC<BenchmarkArrowProps> = ({ values }) => {
 
   return (
     <CurrentEnnergyArrowContainer
-      currentEnergyValue={current_energy_use_value}
-      highestEnergyUsed={highest_ennergy_use}
+      $currentEnergyValue={current_energy_use_value}
+      $highestEnergyUsed={highest_energy_use}
     >
-      <CurrentEnnergyValue label={current_energy_use_label}>
+      <CurrentEnnergyValue $label={current_energy_use_label}>
         {current_energy_use_value}
       </CurrentEnnergyValue>
 

@@ -16,7 +16,7 @@ export const InputField: FC<InputFieldProps> = ({
       <InputLabel id={`label-${rest.id}`}>{label}</InputLabel>
       <Input
         aria-describedby={`label-${rest.id}`}
-        hasError={hasError}
+        $hasError={hasError}
         {...rest}
       />
     </InputContainer>

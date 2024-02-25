@@ -6,10 +6,10 @@ export const InputLabel = styled.label`
   color: ${rimikusTheme.blue.primary};
 `
 
-export const Input = styled.input<{ hasError?: boolean }>(
-  ({ hasError }) => `
+export const Input = styled.input<{ $hasError?: boolean }>(
+  ({ $hasError }) => `
   border-radius: 0.4rem;
-  border: 0.1rem solid ${hasError ? 'red' : rimikusTheme.blue.dark1};
+  border: 0.1rem solid ${$hasError ? 'red' : rimikusTheme.blue.dark1};
   height: 4rem;
   width: 30rem;
   font-size: 1.8rem;
