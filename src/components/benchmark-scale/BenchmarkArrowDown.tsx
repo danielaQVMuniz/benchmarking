@@ -2,9 +2,9 @@ import Image from 'next/image'
 import { FC } from 'react'
 import { BenchmarkScaleProps } from './BenchmarkScale'
 import {
-  CurrentEnnergyArrowContainer,
-  CurrentEnnergyLabel,
-  CurrentEnnergyValue,
+  CurrentEnergyArrowContainer,
+  CurrentEnergyLabel,
+  CurrentEnergyValue,
 } from './styled'
 
 type BenchmarkArrowDownProps = Pick<BenchmarkScaleProps, 'values'>
@@ -20,17 +20,17 @@ export const BenchmarkArrowDown: FC<BenchmarkArrowDownProps> = ({ values }) => {
   if (typeof current_energy_use_value === 'undefined') return null
 
   return (
-    <CurrentEnnergyArrowContainer
+    <CurrentEnergyArrowContainer
       $currentEnergyValue={current_energy_use_value}
       $highestEnergyUsed={highest_energy_use}
     >
-      <CurrentEnnergyValue $label={current_energy_use_label}>
+      <CurrentEnergyValue $label={current_energy_use_label}>
         {current_energy_use_value}
-      </CurrentEnnergyValue>
+      </CurrentEnergyValue>
 
-      <CurrentEnnergyLabel>{current_energy_use_unit}</CurrentEnnergyLabel>
+      <CurrentEnergyLabel>{current_energy_use_unit}</CurrentEnergyLabel>
 
       <Image src="/arrow-down.png" alt="" width={40} height={40} />
-    </CurrentEnnergyArrowContainer>
+    </CurrentEnergyArrowContainer>
   )
 }

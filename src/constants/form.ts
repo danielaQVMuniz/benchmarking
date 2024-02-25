@@ -21,7 +21,7 @@ export const INITIAL_RETROFIT_VALUES: RetrofitFields = [
 ]
 
 export const INITIAL_FORM_VALUES: FormValues = {
-  benchmark_description: '',
+  benchmark_description: 'Benchmarking',
   current_energy_use_label: 'Current',
   current_energy_use_unit: 'kWh',
   current_energy_use_value: 50,

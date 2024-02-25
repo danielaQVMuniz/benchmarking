@@ -3,6 +3,7 @@ import { FC, Fragment } from 'react'
 import { BenchmarkArrowDown } from './BenchmarkArrowDown'
 import { BenchmarkArrowUp } from './BenchmarkArrowUp'
 import {
+  BenchMarkDescription,
   BenchMarkRectangle,
   BenchmarkScaleContainer,
   BenchmarkScaleWrapper,
@@ -21,28 +22,34 @@ export const BenchmarkScale: FC<BenchmarkScaleProps> = ({
   retrofitValues,
 }) => {
   return (
-    <BenchmarkScaleWrapper>
-      <BenchmarkScaleContainer
-        $midEfficiencyPoint={values.mid_efficiency_point}
-      >
-        <BenchmarkArrowDown values={values} />
+    <>
+      <BenchMarkDescription>
+        {values.benchmark_description}
+      </BenchMarkDescription>
 
-        {Array.from({ length: BENCHMARK_RECT_COUNT }).map((_, index) => (
-          <Fragment key={`benchmark-rectangle-${index}`}>
-            <BenchMarkRectangle>
-              <BenchMarkWhiteRect />
-            </BenchMarkRectangle>
-          </Fragment>
-        ))}
+      <BenchmarkScaleWrapper>
+        <BenchmarkScaleContainer
+          $midEfficiencyPoint={values.mid_efficiency_point}
+        >
+          <BenchmarkArrowDown values={values} />
 
-        {retrofitValues.map((retrofit) => (
-          <BenchmarkArrowUp
-            key={`retrofit-arrow-up-${retrofit.id}`}
-            highest_energy_use={values.highest_energy_use}
-            {...retrofit}
-          />
-        ))}
-      </BenchmarkScaleContainer>
-    </BenchmarkScaleWrapper>
+          {Array.from({ length: BENCHMARK_RECT_COUNT }).map((_, index) => (
+            <Fragment key={`benchmark-rectangle-${index}`}>
+              <BenchMarkRectangle>
+                <BenchMarkWhiteRect />
+              </BenchMarkRectangle>
+            </Fragment>
+          ))}
+
+          {retrofitValues.map((retrofit) => (
+            <BenchmarkArrowUp
+              key={`retrofit-arrow-up-${retrofit.id}`}
+              highest_energy_use={values.highest_energy_use}
+              {...retrofit}
+            />
+          ))}
+        </BenchmarkScaleContainer>
+      </BenchmarkScaleWrapper>
+    </>
   )
 }

@@ -5,6 +5,14 @@ const BENCHMARK_RECT_HEIGHT = '6rem'
 const BENCHMARK_RECT_BODER = '0.3rem'
 const BENCHMARK_SCALE_GAP = '0.5rem'
 
+export const BenchMarkDescription = styled.h2`
+  font-size: 3rem;
+  margin-top: 5rem;
+  text-align: center;
+  letter-spacing: 0.1rem;
+`
+
+/** SCALE */
 export const BenchmarkScaleWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -26,7 +34,7 @@ export const BenchmarkScaleContainer = styled.div<{
   display: flex;
   gap: ${BENCHMARK_SCALE_GAP};
   justify-content: center;
-  margin-top: 15rem;
+  margin-top: 10rem;
   position: relative;
   width: fit-content;
 `
@@ -49,6 +57,7 @@ export const BenchMarkWhiteRect = styled.div`
   width: ${BENCHMARK_SCALE_GAP};
 `
 
+/** CURRENT ENERGY */
 const arrowContainer = `
   align-items: center;
   display: flex;
@@ -56,12 +65,8 @@ const arrowContainer = `
   position: absolute;
   transform: translateX(-50%);
 `
-const arrowValue = `
-  font-size: 4rem;
-  position: relative;
-`
 
-export const CurrentEnnergyArrowContainer = styled.div<{
+export const CurrentEnergyArrowContainer = styled.div<{
   $currentEnergyValue: number
   $highestEnergyUsed: number
 }>(
@@ -72,9 +77,10 @@ export const CurrentEnnergyArrowContainer = styled.div<{
   `
 )
 
-export const CurrentEnnergyValue = styled.p<{ $label?: string }>(
+export const CurrentEnergyValue = styled.p<{ $label?: string }>(
   ({ $label }) => `
-  ${arrowValue}  
+  font-size: 4rem;
+  position: relative;
 
   &::after {
     content: "${$label}";
@@ -88,7 +94,7 @@ export const CurrentEnnergyValue = styled.p<{ $label?: string }>(
 `
 )
 
-export const CurrentEnnergyLabel = styled.p`
+export const CurrentEnergyLabel = styled.p`
   font-size: 1.8rem;
   margin-bottom: -0.5rem;
 `
@@ -113,12 +119,13 @@ export const RetrofitArrowContainer = styled.div<{
 )
 
 export const RetrofitValue = styled.p`
-  ${arrowValue}
+  font-size: 3rem;
   margin-top: -0.5rem;
 `
 
 export const RetrofitLabel = styled.p`
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   margin-bottom: 0.5rem;
+  max-width: 8rem;
   text-align: center;
 `
