@@ -5,6 +5,40 @@ const BENCHMARK_RECT_HEIGHT = '6rem'
 const BENCHMARK_RECT_BODER = '0.3rem'
 const BENCHMARK_SCALE_GAP = '0.5rem'
 
+export const BodyWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
+export const BodyContainer = styled.div`
+  font-size: 4rem;
+  display: flex;
+  align-items: flex-end;
+  width: fit-content;
+  gap: 1rem;
+
+  & > p {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+`
+
+export const MaxEnergyLabel = styled.p<{ $unit: string }>(
+  ({ $unit }) => `
+  position: relative;
+  
+  &::after {
+    content: '${$unit}';
+    font-size: 1.8rem;
+    margin-left: 0.2rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+`
+)
+
 export const BenchMarkDescription = styled.h2`
   font-size: 3rem;
   margin-top: 5rem;

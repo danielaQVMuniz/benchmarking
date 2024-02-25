@@ -30,11 +30,29 @@ export default function Home() {
   )
 
   const handleFieldChange = ({ fieldName, evt }: HandleChangeEventProps) => {
+    const updatedValue = evt.currentTarget?.value
+
+    console.log('updatedValue', updatedValue)
+    console.log('typeof', typeof updatedValue)
+
+    if (
+      (fieldName === 'current_energy_use_unit' ||
+        fieldName === 'current_energy_use_value' ||
+        fieldName === 'mid_efficiency_point') &&
+      parseInt(updatedValue) > values.highest_energy_use
+    ) {
+      const newValues = {
+        ...values,
+        [fieldName]: values.highest_energy_use,
+      }
+      setValues(newValues)
+      return
+    }
+
     const newValues = {
       ...values,
       [fieldName]: evt.currentTarget?.value,
     }
-
     setValues(newValues)
   }
 
@@ -45,6 +63,11 @@ export default function Home() {
   }: HandleChangeRetrofitEventProps) => {
     const newValues = retrofitValues.map((item) => {
       if (item.id !== id) return item
+
+      if (fieldName === 'value' && item.value > values.highest_energy_use) {
+        return { ...item, [fieldName]: values.highest_energy_use }
+      }
+
       return { ...item, [fieldName]: evt.currentTarget?.value }
     })
 
