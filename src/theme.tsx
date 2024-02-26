@@ -1,4 +1,4 @@
-export const rimikusTheme = {
+export const rimkusTheme = {
   blue: {
     dark1: '#101820',
     dark2: '#101920',
