@@ -1,3 +1,4 @@
+import StyledComponentsRegistry from '@/lib/registry'
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata } from 'next'
 import { Roboto } from 'next/font/google'
@@ -21,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={roboto.className}>
-        {children}
+        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
         <Analytics />
       </body>
     </html>
