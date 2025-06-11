@@ -145,13 +145,13 @@ export const Form: FC<FormProps> = ({
           </AddRetrofitArrowButton>
         )}
 
-        {retrofitValues.map((item) => {
+        {retrofitValues.map((item, index) => {
           const valueId = `retrofit_value-${item.id}`
           const unitId = `retrofit_unit-${item.id}`
           const labelId = `retrofit_label-${item.id}`
 
           return (
-            <RetrofitFieldset>
+            <RetrofitFieldset key={`retrofit-values-${index}`}>
               <legend>Retrofit Option({item.id})</legend>
               <InputField
                 id={valueId}

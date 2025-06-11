@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/next'
 import type { Metadata } from 'next'
 import { Roboto } from 'next/font/google'
 import './globals.css'
@@ -8,7 +9,7 @@ const roboto = Roboto({
 })
 
 export const metadata: Metadata = {
-  title: 'Rimkus Benchmarking',
+  title: 'Energy Benchmarking',
   description: 'Benchmarking',
 }
 
@@ -19,7 +20,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={roboto.className}>{children}</body>
+      <body className={roboto.className}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   )
 }
