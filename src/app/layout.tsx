@@ -9,7 +9,7 @@ const roboto = Roboto({
 })
 
 export const metadata: Metadata = {
-  title: 'Rimkus Benchmarking',
+  title: 'Energy Benchmarking',
   description: 'Benchmarking',
 }
 
