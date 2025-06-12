@@ -6,6 +6,8 @@ import { ChangeEvent, FC } from 'react'
 import { CustomTextField, FormCard } from './styled'
 import DeleteIcon from '@mui/icons-material/Delete'
 import { FormProps } from '@/types/form'
+import { Add } from '@mui/icons-material'
+import { IconButton } from '@mui/material'
 
 type FormRetrofitValuesProps = Pick<
   FormProps,
@@ -25,22 +27,14 @@ export const FormRetrofitValues: FC<FormRetrofitValuesProps> = ({
 }) => {
   return (
     <section>
-      <Stack flexDirection="row" gap={1} sx={{ marginBottom: '20px' }}>
-        <Button variant="contained" onClick={handleAddRetrofitField}>
-          Add Option
-        </Button>
-
-        {retrofitValues.length > 1 && (
-          <Button
-            color="error"
-            variant="outlined"
-            onClick={handleRemoveRetrofitField}
-            startIcon={<DeleteIcon />}
-          >
-            Delete Option
-          </Button>
-        )}
-      </Stack>
+      <Button
+        variant="contained"
+        onClick={handleAddRetrofitField}
+        endIcon={<Add />}
+        sx={{ width: '100%', marginBottom: '20px' }}
+      >
+        Add Option
+      </Button>
 
       <Stack flexDirection="column" gap={2}>
         {retrofitValues.map((item, index) => {
@@ -97,6 +91,17 @@ export const FormRetrofitValues: FC<FormRetrofitValuesProps> = ({
                   }
                   value={item.label}
                 />
+
+                <Stack display="flex" alignItems="flex-end">
+                  <IconButton
+                    aria-label="Delete option"
+                    color="error"
+                    size="small"
+                    onClick={() => handleRemoveRetrofitField(index)}
+                  >
+                    <DeleteIcon />
+                  </IconButton>
+                </Stack>
               </CardContent>
             </FormCard>
           )

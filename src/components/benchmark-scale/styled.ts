@@ -6,9 +6,10 @@ const BENCHMARK_RECT_BODER = '3px'
 const BENCHMARK_SCALE_GAP = '5px'
 
 export const BodyWrapper = styled.div`
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  margin-bottom: 110px;
 `
 
 export const BodyContainer = styled.div`
@@ -41,7 +42,6 @@ export const MaxEnergyLabel = styled.p<{ $unit: string }>(
 
 export const BenchMarkDescription = styled.h2`
   font-size: 30px;
-  margin-top: 50px;
   text-align: center;
   letter-spacing: 1px;
 `
@@ -115,17 +115,19 @@ export const CurrentEnergyArrowContainer = styled.div<{
 
 export const CurrentEnergyValue = styled.p<{ $label?: string }>(
   ({ $label }) => `
-  font-size: 40px;
+  font-size: 35px;
+  line-height: 1;
+  margin-bottom: 4px;
   position: relative;
 
   &::after {
     content: "${$label}";
     font-size: 18px;
-    margin-left: 5px;
-    margin-top: 50%;
+    margin-left: 2px;
     position: absolute;
+    top: 50%;
     transform: translateY(-50%);
-    width: 120px;
+    width: 135px;
   }
 `
 )
@@ -156,6 +158,7 @@ export const RetrofitArrowContainer = styled.div<{
 
 export const RetrofitValue = styled.p`
   font-size: 30px;
+  line-height: 1;
   margin-top: -5px;
 `
 
@@ -164,4 +167,5 @@ export const RetrofitLabel = styled.p`
   margin-bottom: 5px;
   max-width: 80px;
   text-align: center;
+  line-height: 1;
 `
