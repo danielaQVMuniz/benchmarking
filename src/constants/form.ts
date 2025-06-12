@@ -18,7 +18,7 @@ export type Retrofit = {
 }
 
 export const INITIAL_RETROFIT_VALUES: RetrofitFields = [
-  { id: 1, label: 'Retrofit', unit: 'kWh', value: 50 },
+  { id: 1, label: 'Retrofit', unit: 'kWh', value: 0 },
 ]
 
 export const INITIAL_FORM_VALUES: FormValues = {
