@@ -81,9 +81,9 @@ export default function Home() {
     setRetrofitValues([...retrofitValues, newRetrofit])
   }
 
-  const handleRemoveRetrofitField = () => {
+  const handleRemoveRetrofitField = (index: number) => {
     const updatedFields: RetrofitFields = [...retrofitValues]
-    updatedFields.pop()
+    updatedFields.splice(index, 1)
 
     setRetrofitValues(updatedFields)
   }

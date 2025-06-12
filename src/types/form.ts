@@ -27,7 +27,7 @@ export type FormProps = {
   /**
    * Handles removing the last retrofit field
    */
-  handleRemoveRetrofitField: () => void
+  handleRemoveRetrofitField: (index: number) => void
 
   /**
    * Handles the state of the retrofit fields
