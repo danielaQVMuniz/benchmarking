@@ -1,5 +1,6 @@
-import { rimkusTheme } from '@/theme'
 import styled from 'styled-components'
+
+import { rimkusTheme } from '@/theme'
 
 export const InputLabel = styled.label`
   font-size: 1.8rem;

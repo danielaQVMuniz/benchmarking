@@ -1,6 +1,8 @@
-import { Retrofit } from '@/constants/form'
 import Image from 'next/image'
 import { FC } from 'react'
+
+import { Retrofit } from '@/constants/form'
+
 import { BenchmarkScaleProps } from './BenchmarkScale'
 import { RetrofitArrowContainer, RetrofitLabel, RetrofitValue } from './styled'
 

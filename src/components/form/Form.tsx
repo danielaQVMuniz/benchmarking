@@ -1,9 +1,11 @@
+import { FC } from 'react'
+
 import {
   HandleChangeEventProps,
   HandleChangeRetrofitEventProps,
 } from '@/app/page'
 import { FormValues, RetrofitFields } from '@/constants/form'
-import { FC } from 'react'
+
 import { InputField } from '../input-field/InputField'
 import {
   AddRetrofitArrowButton,
