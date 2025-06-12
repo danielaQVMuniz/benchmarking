@@ -1,14 +1,8 @@
 'use client'
 
-import MenuIcon from '@mui/icons-material/Menu'
-import { Button, Typography } from '@mui/material'
-import AppBar from '@mui/material/AppBar'
-import IconButton from '@mui/material/IconButton'
-import Toolbar from '@mui/material/Toolbar'
-import { ChangeEvent, useState } from 'react'
+import { useState } from 'react'
 
 import { BenchmarkScale } from '@/components/benchmark-scale/BenchmarkScale'
-import { Form } from '@/components/form/Form'
 import {
   FormValues,
   INITIAL_FORM_VALUES,
@@ -17,18 +11,13 @@ import {
   RetrofitFields,
 } from '@/constants/form'
 
-import { PageContainer } from './styled'
-
-export type HandleChangeEventProps = {
-  evt: ChangeEvent<HTMLInputElement>
-  fieldName: keyof FormValues
-}
-
-export type HandleChangeRetrofitEventProps = {
-  evt: ChangeEvent<HTMLInputElement>
-  fieldName: string
-  id: number
-}
+import { PageContainer, PageLayoutGrid } from './styled'
+import { Header } from '@/components/header/Header'
+import { OptionsNav } from '@/components/options-nav/OptionsNav'
+import {
+  HandleChangeEventProps,
+  HandleChangeRetrofitEventProps,
+} from '@/types/form'
 
 export default function Home() {
   const [values, setValues] = useState<FormValues>(INITIAL_FORM_VALUES)
@@ -101,34 +90,20 @@ export default function Home() {
 
   return (
     <PageContainer>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Energy Benchmarking
-          </Typography>
-          <Button color="inherit">Login</Button>
-        </Toolbar>
-      </AppBar>
+      <Header />
 
-      <BenchmarkScale retrofitValues={retrofitValues} values={values} />
+      <PageLayoutGrid>
+        <OptionsNav
+          handleAddRetrofitField={handleAddRetrofitField}
+          handleChange={handleFieldChange}
+          handleRemoveRetrofitField={handleRemoveRetrofitField}
+          handleRetrofitChange={handleRetrofitChange}
+          retrofitValues={retrofitValues}
+          values={values}
+        />
 
-      <Form
-        handleAddRetrofitField={handleAddRetrofitField}
-        handleChange={handleFieldChange}
-        handleRemoveRetrofitField={handleRemoveRetrofitField}
-        handleRetrofitChange={handleRetrofitChange}
-        retrofitValues={retrofitValues}
-        values={values}
-      />
+        <BenchmarkScale retrofitValues={retrofitValues} values={values} />
+      </PageLayoutGrid>
     </PageContainer>
   )
 }

@@ -7,3 +7,9 @@ export const PageContainer = styled.main`
   width: 100%;
   flex-grow: 1;
 `
+
+export const PageLayoutGrid = styled.div`
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr 70%;
+`

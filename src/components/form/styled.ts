@@ -1,44 +1,27 @@
 import styled from 'styled-components'
 
-import { rimkusTheme } from '@/theme'
+import TextField from '@mui/material/TextField'
+import Card from '@mui/material/Card'
 
 export const FormContainer = styled.form`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin-left: 4rem;
-  margin-top: 20rem;
+  margin-left: 40px;
+  margin-top: 200px;
   width: 90%;
-
-  & > fieldset {
-    border-color: ${rimkusTheme.blue.primary};
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 4rem 2rem;
-  }
-
-  & legend {
-    color: ${rimkusTheme.blue.primary};
-    font-size: 2.4rem;
-  }
 `
 
-export const RetrofitFieldset = styled.fieldset`
-  border-color: ${rimkusTheme.blue.light1};
+export const FormCard = styled(Card)`
+  background: linear-gradient(90deg, #edede9 0%, hsla(192, 17%, 94%, 1) 100%);
+`
+
+export const CustomTextField = styled(TextField).attrs({
+  size: 'small',
+  variant: 'outlined',
+})``
+
+export const FormDynamicValuesWrapper = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  padding: 4rem 2rem;
-`
-
-export const AddRetrofitArrowButton = styled.button`
-  transition: all ease-in-out 0.3s;
-  padding: 2rem 3rem;
-  font-size: 1.8rem;
-  color: white;
-  background-color: ${rimkusTheme.blue.light1};
-
-  &:hover {
-    background-color: ${rimkusTheme.blue.light2};
-  }
+  gap: 20px;
 `

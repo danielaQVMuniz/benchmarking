@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-const BENCHMARK_RECT_WIDTH = '8rem'
-const BENCHMARK_RECT_HEIGHT = '6rem'
-const BENCHMARK_RECT_BODER = '0.3rem'
-const BENCHMARK_SCALE_GAP = '0.5rem'
+const BENCHMARK_RECT_WIDTH = '80px'
+const BENCHMARK_RECT_HEIGHT = '60px'
+const BENCHMARK_RECT_BODER = '3px'
+const BENCHMARK_SCALE_GAP = '5px'
 
 export const BodyWrapper = styled.div`
   display: flex;
@@ -12,15 +12,15 @@ export const BodyWrapper = styled.div`
 `
 
 export const BodyContainer = styled.div`
-  font-size: 4rem;
+  font-size: 40px;
   display: flex;
   align-items: flex-end;
   width: fit-content;
-  gap: 1rem;
+  gap: 10px;
 
   & > p {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    font-size: 30px;
+    margin-bottom: 10px;
   }
 `
 
@@ -30,8 +30,8 @@ export const MaxEnergyLabel = styled.p<{ $unit: string }>(
   
   &::after {
     content: '${$unit}';
-    font-size: 1.8rem;
-    margin-left: 0.2rem;
+    font-size: 18px;
+    margin-left: 2px;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -40,10 +40,10 @@ export const MaxEnergyLabel = styled.p<{ $unit: string }>(
 )
 
 export const BenchMarkDescription = styled.h2`
-  font-size: 3rem;
-  margin-top: 5rem;
+  font-size: 30px;
+  margin-top: 50px;
   text-align: center;
-  letter-spacing: 0.1rem;
+  letter-spacing: 1px;
 `
 
 /** SCALE */
@@ -70,7 +70,7 @@ export const BenchmarkScaleContainer = styled.div<{
   display: flex;
   gap: ${BENCHMARK_SCALE_GAP};
   justify-content: center;
-  margin-top: 10rem;
+  margin-top: 100px;
   position: relative;
   width: fit-content;
 `
@@ -79,7 +79,7 @@ export const BenchmarkScaleContainer = styled.div<{
 export const BenchMarkRectangle = styled.div`
   background-color: transparent;
   border: ${BENCHMARK_RECT_BODER} solid black;
-  height: 6rem;
+  height: 60px;
   position: relative;
   width: ${BENCHMARK_RECT_WIDTH};
 `
@@ -88,7 +88,7 @@ export const BenchMarkWhiteRect = styled.div`
   background-color: white;
   height: ${BENCHMARK_RECT_HEIGHT};
   position: absolute;
-  right: calc(-${BENCHMARK_RECT_BODER} * 2 - 0.2rem);
+  right: calc(-${BENCHMARK_RECT_BODER} * 2 - 2px);
   bottom: -${BENCHMARK_RECT_BODER};
   width: ${BENCHMARK_SCALE_GAP};
 `
@@ -108,31 +108,31 @@ export const CurrentEnergyArrowContainer = styled.div<{
 }>(
   ({ $currentEnergyValue, $highestEnergyUsed }) => `
   ${arrowContainer}
-  bottom: calc(${BENCHMARK_RECT_HEIGHT} - 1rem);
+  bottom: calc(${BENCHMARK_RECT_HEIGHT} - 10px);
   left: ${($currentEnergyValue * 100) / $highestEnergyUsed}%;
   `
 )
 
 export const CurrentEnergyValue = styled.p<{ $label?: string }>(
   ({ $label }) => `
-  font-size: 4rem;
+  font-size: 40px;
   position: relative;
 
   &::after {
     content: "${$label}";
-    font-size: 1.8rem;
-    margin-left: 0.5rem;
+    font-size: 18px;
+    margin-left: 5px;
     margin-top: 50%;
     position: absolute;
     transform: translateY(-50%);
-    width: 12rem;
+    width: 120px;
   }
 `
 )
 
 export const CurrentEnergyLabel = styled.p`
-  font-size: 1.8rem;
-  margin-bottom: -0.5rem;
+  font-size: 18px;
+  margin-bottom: -5px;
 `
 
 /**
@@ -145,7 +145,7 @@ export const RetrofitArrowContainer = styled.div<{
 }>(
   ({ $highestEnergyUsed, $retrofitValue }) => `
   ${arrowContainer}
-  top: calc(${BENCHMARK_RECT_HEIGHT} - 1rem);
+  top: calc(${BENCHMARK_RECT_HEIGHT} - 10px);
   left: ${($retrofitValue * 100) / $highestEnergyUsed}%;
   
   & img {
@@ -155,13 +155,13 @@ export const RetrofitArrowContainer = styled.div<{
 )
 
 export const RetrofitValue = styled.p`
-  font-size: 3rem;
-  margin-top: -0.5rem;
+  font-size: 30px;
+  margin-top: -5px;
 `
 
 export const RetrofitLabel = styled.p`
-  font-size: 1.6rem;
-  margin-bottom: 0.5rem;
-  max-width: 8rem;
+  font-size: 16px;
+  margin-bottom: 5px;
+  max-width: 80px;
   text-align: center;
 `
