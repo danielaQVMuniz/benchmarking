@@ -1,9 +1,8 @@
 import styled from 'styled-components'
 
 export const OptionsNavContainer = styled.aside`
-  height: 100%;
+  height: calc(100vh - 65px);
   overflow: scroll;
-  max-height: calc(100vh - 65px);
 `
 
 export const CustomTabContainer = styled.div`
