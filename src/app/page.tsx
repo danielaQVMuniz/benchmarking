@@ -1,7 +1,8 @@
 'use client'
 
+import { useState } from 'react'
+
 import { BenchmarkScale } from '@/components/benchmark-scale/BenchmarkScale'
-import { Form } from '@/components/form/Form'
 import {
   FormValues,
   INITIAL_FORM_VALUES,
@@ -9,19 +10,14 @@ import {
   Retrofit,
   RetrofitFields,
 } from '@/constants/form'
-import { ChangeEvent, useState } from 'react'
-import { PageContainer } from './styled'
 
-export type HandleChangeEventProps = {
-  evt: ChangeEvent<HTMLInputElement>
-  fieldName: keyof FormValues
-}
-
-export type HandleChangeRetrofitEventProps = {
-  evt: ChangeEvent<HTMLInputElement>
-  fieldName: string
-  id: number
-}
+import { PageContainer, PageLayoutGrid } from './styled'
+import { Header } from '@/components/header/Header'
+import { OptionsNav } from '@/components/options-nav/OptionsNav'
+import {
+  HandleChangeEventProps,
+  HandleChangeRetrofitEventProps,
+} from '@/types/form'
 
 export default function Home() {
   const [values, setValues] = useState<FormValues>(INITIAL_FORM_VALUES)
@@ -31,9 +27,6 @@ export default function Home() {
 
   const handleFieldChange = ({ fieldName, evt }: HandleChangeEventProps) => {
     const updatedValue = evt.currentTarget?.value
-
-    console.log('updatedValue', updatedValue)
-    console.log('typeof', typeof updatedValue)
 
     if (
       (fieldName === 'current_energy_use_unit' ||
@@ -97,16 +90,20 @@ export default function Home() {
 
   return (
     <PageContainer>
-      <BenchmarkScale retrofitValues={retrofitValues} values={values} />
+      <Header />
 
-      <Form
-        handleAddRetrofitField={handleAddRetrofitField}
-        handleChange={handleFieldChange}
-        handleRemoveRetrofitField={handleRemoveRetrofitField}
-        handleRetrofitChange={handleRetrofitChange}
-        retrofitValues={retrofitValues}
-        values={values}
-      />
+      <PageLayoutGrid>
+        <OptionsNav
+          handleAddRetrofitField={handleAddRetrofitField}
+          handleChange={handleFieldChange}
+          handleRemoveRetrofitField={handleRemoveRetrofitField}
+          handleRetrofitChange={handleRetrofitChange}
+          retrofitValues={retrofitValues}
+          values={values}
+        />
+
+        <BenchmarkScale retrofitValues={retrofitValues} values={values} />
+      </PageLayoutGrid>
     </PageContainer>
   )
 }

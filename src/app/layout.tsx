@@ -1,8 +1,12 @@
-import StyledComponentsRegistry from '@/lib/registry'
+import './globals.css'
+
+import CssBaseline from '@mui/material/CssBaseline'
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata } from 'next'
 import { Roboto } from 'next/font/google'
-import './globals.css'
+import { ThemeProvider } from '@mui/material'
+import theme from '@/lib/theme'
+import StyledComponentsRegistry from '@/lib/registry'
 
 const roboto = Roboto({
   weight: '400',
@@ -16,13 +20,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={roboto.className}>
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        <CssBaseline />
+
+        <StyledComponentsRegistry>
+          <ThemeProvider theme={theme}>{children}</ThemeProvider>
+        </StyledComponentsRegistry>
+
         <Analytics />
       </body>
     </html>
