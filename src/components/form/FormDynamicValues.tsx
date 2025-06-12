@@ -1,6 +1,7 @@
 import { FormProps } from '@/types/form'
 import CardContent from '@mui/material/CardContent'
 import { ChangeEvent, FC } from 'react'
+import PercentIcon from '@mui/icons-material/Percent'
 
 import { CustomTextField, FormCard, FormDynamicValuesWrapper } from './styled'
 
@@ -36,6 +37,11 @@ export const FormDynamicValues: FC<FormDynamicValuesProps> = ({
               handleChange({ evt, fieldName: 'mid_efficiency_point' })
             }
             inputProps={{ min: 0, max: values.highest_energy_use }}
+            slotProps={{
+              input: {
+                endAdornment: <PercentIcon fontSize="small" />,
+              },
+            }}
             value={values.mid_efficiency_point}
           />
 
@@ -46,6 +52,11 @@ export const FormDynamicValues: FC<FormDynamicValuesProps> = ({
             onChange={(evt: ChangeEvent<HTMLInputElement>) =>
               handleChange({ evt, fieldName: 'low_efficiency_point' })
             }
+            slotProps={{
+              input: {
+                endAdornment: <PercentIcon fontSize="small" />,
+              },
+            }}
             type="number"
             value={values.low_efficiency_point}
           />
