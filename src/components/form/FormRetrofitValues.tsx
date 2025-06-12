@@ -1,4 +1,5 @@
-import { CardContent, Stack } from '@mui/material'
+import CardContent from '@mui/material/CardContent'
+import Stack from '@mui/material/Stack'
 import Button from '@mui/material/Button'
 import { ChangeEvent, FC } from 'react'
 
